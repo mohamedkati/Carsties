@@ -94,5 +94,6 @@ public class AuctionsController : ControllerBase
         if (!result) BadRequest("Could not detele the auction");
         
         return Ok();
+        
     }
 }
