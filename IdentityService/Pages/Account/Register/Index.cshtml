@@ -1,0 +1,55 @@
+﻿@page
+@model IdentityService.Pages.Account.Register.Index
+
+<div>
+    <partial name="_ValidationSummary"/>
+
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="h2">
+                        @if (Model.RegisterSucced)
+                        {
+                            <span class="badge badge-success"> User Registred Successfully </span>
+                        }
+                        else
+                        {
+                            <span>Register new user form here</span>
+                            
+                        }
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form asp-page="/Account/Register/Index">
+                        <input type="hidden" asp-for="Input.ReturnUrl"/>
+
+                        <div class="form-group">
+                            <label asp-for="Input.Fullname"></label>
+                            <input class="form-control" placeholder="Fullname" asp-for="Input.Fullname" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.Username"></label>
+                            <input class="form-control" placeholder="Username" asp-for="Input.Username" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.Email"></label>
+                            <input type="text" class="form-control" placeholder="Email" asp-for="Input.Email" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.Password"></label>
+                            <input type="password" class="form-control" placeholder="Password" asp-for="Input.Password" autocomplete="off">
+                        </div>
+
+                        <a class="pt-1 pb-1 d-block" asp-page="../Login/index" asp-route-returnUrl="Input.ReturnUrl">
+                            Have Already an account ? Login from here
+                        </a>
+                        <button class="btn btn-primary" name="Input.Button" value="Register">Register</button>
+                        <button class="btn btn-secondary" name="Input.Button" value="cancel">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
