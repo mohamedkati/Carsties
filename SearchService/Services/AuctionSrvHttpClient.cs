@@ -14,14 +14,14 @@ public class AuctionSrvHttpClient
         _config = config;
     }
 
-    public async Task<List<Item>> GetDataFromAuctionService()
+    public async Task<List<ItemAuction>> GetDataFromAuctionService()
     {
-        var lastUpdateAt = await DB.Find<Item, string>()
+        var lastUpdateAt = await DB.Find<ItemAuction, string>()
             .Sort(x => x.Descending(a => a.UpdateAd))
             .Project(x => x.UpdateAd.ToString())
             .ExecuteFirstAsync();
 
-        return await _httpClient.GetFromJsonAsync<List<Item>>(
+        return await _httpClient.GetFromJsonAsync<List<ItemAuction>>(
             $"{_config["AuctionServiceUrl"]}/api/auctions?date={lastUpdateAt}");
     }
 }

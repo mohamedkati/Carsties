@@ -8,8 +8,8 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<AuctionCreated, Item>();
-        CreateMap<AuctionUpdated, Item>();
+        CreateMap<AuctionCreated, ItemAuction>();
+        CreateMap<AuctionUpdated, ItemAuction>();
 
     }
 }

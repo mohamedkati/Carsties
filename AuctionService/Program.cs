@@ -1,3 +1,4 @@
+using AuctionService.Consumers;
 using AuctionService.Data;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -21,8 +22,17 @@ builder.Services.AddMassTransit(x =>
         config.UseBusOutbox();
     });
 
+    x.AddConsumersFromNamespaceContaining<AuctionFinishedConsumer>();
+    x.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("auction", false));
     x.UsingRabbitMq((context, config) =>
-        config.ConfigureEndpoints(context)
+        {
+            config.ReceiveEndpoint(cnfg =>
+            {
+                cnfg.UseMessageRetry(cn => cn.Interval(6, 5));
+                cnfg.ConfigureConsumers(context);
+            });
+            config.ConfigureEndpoints(context);
+        }
     );
 });
 

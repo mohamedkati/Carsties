@@ -19,7 +19,7 @@ public class AuctionUpdatedConsumer : IConsumer<AuctionUpdated>
     {
         Console.WriteLine($"--> Consume AuctionUpdated event started : {context.Message.Id}");
 
-        var updatedItem = _mapper.Map<Item>(context.Message);
+        var updatedItem = _mapper.Map<ItemAuction>(context.Message);
 
         var auctionInDb = await updatedItem.SaveOnlyAsync(new List<string>()
             { "Model", "Make", "Color", "Year", "Mileage" });

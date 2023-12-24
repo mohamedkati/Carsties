@@ -13,7 +13,7 @@ public class DbInitializer
         await DB.InitAsync("SearchAuctionsDb",
             MongoClientSettings.FromConnectionString(app.Configuration.GetConnectionString("MongoDbConnection")));
 
-        await DB.Index<Item>()
+        await DB.Index<ItemAuction>()
             .Key(x => x.Make, KeyType.Text)
             .Key(x => x.Model, KeyType.Text)
             .Key(x => x.Seller, KeyType.Text)
@@ -21,7 +21,7 @@ public class DbInitializer
             .Key(x => x.Status, KeyType.Text)
             .CreateAsync();
 
-        var count = await DB.CountAsync<Item>();
+        var count = await DB.CountAsync<ItemAuction>();
         Console.WriteLine(count + " found in mongo db");
         using var scope = app.Services.CreateScope();
 

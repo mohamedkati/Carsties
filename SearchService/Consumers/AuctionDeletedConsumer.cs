@@ -12,7 +12,7 @@ public class AuctionDeletedConsumer : IConsumer<AuctionDeleted>
     {
         Console.WriteLine($"--> Consume AuctionDeleted event started : {context.Message.Id}");
 
-        var item = await DB.Collection<Item>().DeleteOneAsync(x => x.ID == context.Message.Id);
+        var item = await DB.Collection<ItemAuction>().DeleteOneAsync(x => x.ID == context.Message.Id);
         Console.WriteLine($"--> Consumed AuctionDeleted, result deleted => : {item.DeletedCount}");
     }
 }

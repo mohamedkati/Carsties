@@ -12,7 +12,7 @@ public class SearchController : ControllerBase
     [HttpGet]
     public async Task<ActionResult> SearchItems([FromQuery] SearchParams searchParams)
     {
-        var query = DB.PagedSearch<Item, Item>();
+        var query = DB.PagedSearch<ItemAuction, ItemAuction>();
 
         if (!string.IsNullOrEmpty(searchParams.SearchTerm))
         {
