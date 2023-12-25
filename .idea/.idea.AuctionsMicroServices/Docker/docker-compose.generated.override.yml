@@ -1,0 +1,102 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  auction-service:
+    build:
+      context: "C:\\Users\\simo\\RiderProjects\\AuctionsMicroServices"
+      dockerfile: "AuctionService/Dockerfile"
+      target: "build"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/rider-debugger/linux-x64/dotnet/dotnet"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.exe"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
+    image: "semokati/auction-service:dev"
+    ports:
+    - "127.0.0.1:57000:57100"
+    - "127.0.0.1:57200:57300"
+    volumes:
+    - "C:\\Users\\simo\\.nuget\\packages:/root/.nuget/packages"
+    - "C:\\Users\\simo\\RiderProjects\\AuctionsMicroServices\\AuctionService:/app:rw"
+    - "C:\\Users\\simo\\RiderProjects\\AuctionsMicroServices:/src:rw"
+    - "C:\\Users\\simo\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2023.3.1\\\
+      Linux64:/opt/rider-debugger"
+    - "C:\\Program Files\\JetBrains\\JetBrains Rider 2023.3.1\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "C:\\Users\\simo\\AppData\\Local\\JetBrains\\Rider2023.3\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2023_12_25_17_51_22:/var/opt/rider-debugger:rw"
+    working_dir: "/app"
+  identity-service:
+    build:
+      context: "C:\\Users\\simo\\RiderProjects\\AuctionsMicroServices"
+      dockerfile: "IdentityService/Dockerfile"
+      target: "build"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/rider-debugger/linux-x64/dotnet/dotnet"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.exe"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
+    environment:
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net8.0/IdentityService.staticwebassets.runtime.CT.json"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
+    image: "semokati/identity-service:dev"
+    ports:
+    - "127.0.0.1:57001:57100"
+    - "127.0.0.1:57201:57300"
+    volumes:
+    - "C:\\Users\\simo\\.nuget\\packages:/root/.nuget/packages"
+    - "C:\\Users\\simo\\RiderProjects\\AuctionsMicroServices\\IdentityService:/app:rw"
+    - "C:\\Users\\simo\\RiderProjects\\AuctionsMicroServices:/src:rw"
+    - "C:\\Users\\simo\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2023.3.1\\\
+      Linux64:/opt/rider-debugger"
+    - "C:\\Program Files\\JetBrains\\JetBrains Rider 2023.3.1\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "C:\\Users\\simo\\AppData\\Local\\JetBrains\\Rider2023.3\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2023_12_25_17_51_22:/var/opt/rider-debugger:rw"
+    working_dir: "/app"
+  search-service:
+    build:
+      context: "C:\\Users\\simo\\RiderProjects\\AuctionsMicroServices"
+      dockerfile: "SearchService/Dockerfile"
+      target: "build"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/rider-debugger/linux-x64/dotnet/dotnet"
+    - "/opt/rider-debugger/JetBrains.Debugger.Worker.exe"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    - "--timeout=60"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/rider-debugger"
+      RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
+    image: "semokati/search-service:dev"
+    ports:
+    - "127.0.0.1:57002:57100"
+    - "127.0.0.1:57202:57300"
+    volumes:
+    - "C:\\Users\\simo\\.nuget\\packages:/root/.nuget/packages"
+    - "C:\\Users\\simo\\RiderProjects\\AuctionsMicroServices\\SearchService:/app:rw"
+    - "C:\\Users\\simo\\RiderProjects\\AuctionsMicroServices:/src:rw"
+    - "C:\\Users\\simo\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2023.3.1\\\
+      Linux64:/opt/rider-debugger"
+    - "C:\\Program Files\\JetBrains\\JetBrains Rider 2023.3.1\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "C:\\Users\\simo\\AppData\\Local\\JetBrains\\Rider2023.3\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2023_12_25_17_51_22:/var/opt/rider-debugger:rw"
+    working_dir: "/app"
