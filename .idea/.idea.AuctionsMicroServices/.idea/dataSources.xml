@@ -5,7 +5,7 @@
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/AspIdUsers</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/auctions</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
     <data-source source="LOCAL" name="mongodb" uuid="5c724911-2236-4f3d-8e0a-e457fb8b2bc6">
