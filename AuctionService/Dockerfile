@@ -11,6 +11,8 @@ COPY GatewayService/GatewayService.csproj GatewayService/GatewayService.csproj
 COPY Contracts/Contracts.csproj Contracts/Contracts.csproj
 COPY IdentityService/IdentityService.csproj IdentityService/IdentityService.csproj
 COPY SearchService/SearchService.csproj SearchService/SearchService.csproj
+COPY BidService/BidService.csproj BidService/BidService.csproj
+COPY NotificationService/NotificationService.csproj NotificationService/NotificationService.csproj 
 
 #COPY ["AuctionService/AuctionService.csproj", "AuctionService/"]
 

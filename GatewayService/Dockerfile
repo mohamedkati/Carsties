@@ -9,6 +9,8 @@ COPY SearchService/SearchService.csproj SearchService/SearchService.csproj
 COPY IdentityService/IdentityService.csproj IdentityService/IdentityService.csproj
 COPY Contracts/Contracts.csproj Contracts/Contracts.csproj
 COPY GatewayService/GatewayService.csproj GatewayService/GatewayService.csproj
+COPY BidService/BidService.csproj BidService/BidService.csproj
+COPY NotificationService/NotificationService.csproj NotificationService/NotificationService.csproj 
 
 # restore all the dependencies packages
 RUN dotnet restore AuctionsMicroServices.sln

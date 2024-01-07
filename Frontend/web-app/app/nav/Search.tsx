@@ -19,7 +19,8 @@ export default function Search() {
     setParams({ searchTerm: value });
   };
   return (
-    <div className="w-[100%]">
+    // <div className="w-[100%]">
+    <div className="w-[50%]">
       <div className="flex w-[100%] items-center border-2 rounded-full py-2 shadow-sm">
         <input
           onKeyDown={(e: any) => {

@@ -12,7 +12,7 @@ public class BidPlacedConsumer(AuctionDbContext dbContext) : IConsumer<BidPlaced
     {
         Console.WriteLine($"Consuming Bid Placed Event From auction service :  {context.Message.AuctionId}");
 
-        var auction = await _dbContext.Auctions.FindAsync(context.Message.AuctionId);
+        var auction = await _dbContext.Auctions.FindAsync(Guid.Parse((context.Message.AuctionId)));
 
         if (auction == null)
         {

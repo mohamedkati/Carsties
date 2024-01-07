@@ -12,8 +12,10 @@ public class BidPlacedConsumer : IConsumer<BidPlaced>
         Console.WriteLine($"--> Consume BidPlaced event started From Search service: {context.Message.AuctionId}");
         var auction = await DB.Find<ItemAuction>().OneAsync(context.Message.AuctionId);
 
-        if (context.Message.BidStatus.ToLower().Contains("accepted") && context.Message.Amount > auction.CurrentHighBid)
+        if ((context.Message.BidStatus.ToLower().Contains("accepted") &&
+             context.Message.Amount > auction.CurrentHighBid) || auction.CurrentHighBid is null)
         {
+            Console.WriteLine($"--> Consume BidPlaced event update auction: {context.Message.AuctionId}");
             auction.CurrentHighBid = context.Message.Amount;
             await auction.SaveAsync();
         }

@@ -1,13 +1,24 @@
 import React from "react";
 import Search from "./Search";
 import Logo from "./Logo";
+import LoginButton from "./LoginButton";
+import { getCurrentUser } from "../actions/authActions";
+import UserActions from "./UserActions";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const user = await getCurrentUser();
   return (
-    <header className="sticky grid grid-cols-3 top-0 z-50   bg-white p-5 items-center text-gray-800 shadow-md">
+    // <header className="sticky grid grid-cols-3 top-0 z-50   bg-white p-5 items-center text-gray-800 shadow-md">
+    <header className="sticky top-0 z-50 flex justify-between  bg-white p-5 items-center text-gray-800 shadow-md">
       <Logo />
       <Search />
-      <div className="float-right text-right">Login</div>
+      {user ? (
+        <UserActions user={user} />
+      ) : (
+        <div className="flex justify-end">
+          <LoginButton />
+        </div>
+      )}
     </header>
   );
 }
